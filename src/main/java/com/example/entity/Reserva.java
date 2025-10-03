@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -26,18 +27,19 @@ public class Reserva {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ReservaID")
     private Integer reservaId;
 
     @ManyToOne
-    @JoinColumn(name = "usuarioId")
+    @JoinColumn(name = "UsuarioID")
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "agenteId")
+    @JoinColumn(name = "AgenteID")
     private Agente agente;
 
     @ManyToOne
-    @JoinColumn(name = "destinoId")
+    @JoinColumn(name = "DestinoID")
     private Destino destino;
 
     private Date fechaReserva;
